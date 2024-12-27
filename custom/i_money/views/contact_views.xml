@@ -11,7 +11,10 @@
                 <field name="phone"/>
                 <field name="email"/>
                 <field name="gender"/>
-                <field name="birthdate"/>
+                <field name="birthdate" groups="i_money.contact_admin"/>
+                <field name="company_id" groups="i_money.contact_admin"/>
+                <field name="country_id"/>
+                <field name="state_id"  groups="i_money.contact_admin"/>
             </tree>
         </field>
     </record>
@@ -35,7 +38,7 @@
                         </group>
                     </group>
                     <group>
-                       <group string="Localisation">
+                       <group string="Localisation" groups="i_money.contact_admin">
                             <field name="company_id" />
                             <field name="country_id" />
                             <field name="state_id" domain="[('country_id', '=', country_id)]"/>

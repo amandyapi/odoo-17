@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="contact_user" model="res.groups">
+            <field name="name">Contact User</field>
+        </record>
+
+         <record id="contact_admin" model="res.groups">
+            <field name="name">Contact Admin</field>
+            <field name="implied_ids" eval="[(4, ref('contact_user'))]"/>
+        </record>
+    </data>
+</odoo>

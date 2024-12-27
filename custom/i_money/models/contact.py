@@ -6,7 +6,7 @@ class Contact(models.Model):
     
     first_name = fields.Char(string="First Name", required=True)
     last_name = fields.Char(string="Last Name")
-    phone = fields.Integer(string="Mobile Phone")
+    phone = fields.Char(string="Mobile Phone")
     email = fields.Char(string="Email", compute="_compute_mail", store=True)
     city = fields.Char(string="City")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female')],string='Gender')

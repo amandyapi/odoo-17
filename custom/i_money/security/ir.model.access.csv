@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_i_contact_base_user,access_i_contact_base_user,model_i_contact,base.group_user,1,1,1,1
-access_i_contact_number_base_user,access_i_contact_number_base_user,model_i_contact_number,base.group_user,1,1,1,1
+access_i_contact_base_user,access_i_contact_base_user,model_i_contact,i_money.contact_user,1,1,1,0
+access_i_contact_number_base_user,access_i_contact_number_base_user,model_i_contact_number,i_money.contact_user,1,1,1,0
+access_i_contact_base_admin,access_i_contact_admin_user,model_i_contact,i_money.contact_admin,1,1,1,1
+access_i_contact_number_base_admin,access_i_contact_admin_user,model_i_contact_number,i_money.contact_admin,1,1,1,1

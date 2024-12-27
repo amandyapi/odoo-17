@@ -10,6 +10,8 @@
     'depends': ['base', 'web'],
     'data': [
         'security/ir.model.access.csv',
+        'security/i_money_group.xml',
+        'security/i_money_rule.xml',
         'data/contact_data.xml',
         'data/contact_sequence.xml',
         'report/contact_report_template.xml',
