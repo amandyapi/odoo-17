@@ -18,10 +18,13 @@ class Contact(models.Model):
 
     comment = fields.Text(string="Comment")
     note = fields.Html(string="Note")
+    sequence = fields.Char(string='Sequence', required=True, copy=False, readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('my_model_sequence'))
 
     @api.depends('first_name', 'last_name')
     def _compute_mail(self):
-        self.ensure_one()
-        if self.first_name and self.last_name:
-            self.email = "%s.%s@imoney.civ"%(self.first_name, self.last_name)
-            return self.email
+        for rec in self:
+            if rec.first_name and rec.last_name:
+                firstname = rec.first_name.lower().replace(" ", "_")
+                lastname = rec.last_name.lower().replace(" ", "_")
+                rec.email = "%s.%s@imoney.civ"%(rec.first_name, rec.last_name)
+                return rec.email

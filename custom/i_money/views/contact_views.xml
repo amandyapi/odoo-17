@@ -23,6 +23,7 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
+                    <!-- <field name="sequence"/> -->
                     <group>
                         <group string="Personal Information">
                             <field name="first_name" required="1" />
@@ -58,6 +59,30 @@
             </form>
         </field>
     </record> 
+
+    <!-- searchview -->
+
+    <record id="i_contact_view_search" model="ir.ui.view">
+        <field name="name">i.contact.search</field>
+        <field name="model">i.contact</field>
+        <field name="arch" type="xml">
+            <search string="Contact">
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="gender"/>
+                <field name="birthdate"/>
+                <filter string="Gender rule" name="gender" domain="[('gender', '=', 'male')]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Gender" name="gender" context="{'group_by': 'gender'}"/>
+                </group>
+                <group expand="0" string="Group By">
+                    <filter string="State" name="state_id" context="{'group_by': 'state_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 
     <record id="action_i_money" model="ir.actions.act_window">
         <field name="name">Contact</field>

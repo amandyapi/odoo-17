@@ -7,9 +7,13 @@
         This module demonstrates how to create a new model and menu item in Odoo.
     """,
     'author': 'TKR',
-    'depends': ['base'],
+    'depends': ['base', 'web'],
     'data': [
         'security/ir.model.access.csv',
+        'data/contact_data.xml',
+        'data/contact_sequence.xml',
+        'report/contact_report_template.xml',
+        'report/action_contact_report.xml',
         'views/contact_views.xml',
         'views/menu_views.xml'
     ],

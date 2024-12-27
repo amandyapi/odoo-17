@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="i_contact_1" model="i.contact">
+            <field name="first_name">Laure</field>
+            <field name="last_name">Koffi</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>   
+    <record id="action_report_contact_template" model="ir.actions.report">       
+        <field name="name">Contact Report</field>       
+        <field name="model">i.contact</field>       
+        <field name="report_type">qweb-pdf</field>       
+        <field name="report_name">i_money.report_contact</field>       
+        <field name="report_file">i_money.report_contact</field>       
+        <field name="print_report_name">'Contact Report - %s' % (object.sequence)</field>       
+        <field name="binding_model_id" ref="i_money.model_i_contact"/>       
+        <field name="binding_type">report</field>   
+    </record>
+</odoo>
