@@ -1,0 +1,32 @@
+version: '3.0'
+services:
+  odoo17_web:
+    container_name: odoo17_web
+    image: odoo:17
+    restart: unless-stopped
+    depends_on:
+      - odoo17_db
+    links:
+      - "odoo17_db:db"
+    ports:
+      - "17000:8069"
+    tty: true
+    command: -- --dev=reload
+    volumes:
+      - ./config:/etc/odoo
+      - ./custom:/mnt/extra-addons
+      #- ./enterprise:/mnt/enterprise-addons
+     
+  odoo17_db:
+    container_name: odoo17_db
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
+    restart: unless-stopped
+volumes:
+  odoo17-web-data:
+  odoo17-db-data:

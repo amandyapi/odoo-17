@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- listview -->
+    <record id="i_contact_tree_view" model="ir.ui.view">
+        <field name="name">i.contact.tree</field>
+        <field name="model">i.contact</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="gender"/>
+                <field name="birthdate"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- formview -->
+    <record id="i_contact_form_view" model="ir.ui.view">
+        <field name="name">i.contact.form</field>
+        <field name="model">i.contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group string="Personal Information">
+                            <field name="first_name" required="1" />
+                            <field name="last_name" />
+                        </group>
+                        <group string="Contact Information">
+                            <field name="email" />
+                            <field name="phone" />
+                        </group>
+                    </group>
+                    <group>
+                       <group string="Localisation">
+                            <field name="company_id" />
+                            <field name="country_id" />
+                            <field name="state_id" domain="[('country_id', '=', country_id)]"/>
+                        </group>
+                       <group string="Other Information">
+                            <field name="gender" placeholder="Choose Gender"/>
+                            <field name="birthdate" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Other numbers">
+                            <field name="number_lines" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="phone" />
+                                    <field name="state" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <record id="action_i_money" model="ir.actions.act_window">
+        <field name="name">Contact</field>
+        <field name="res_model">i.contact</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>
