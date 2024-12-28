@@ -18,7 +18,7 @@ class Contact(models.Model):
 
     comment = fields.Text(string="Comment")
     note = fields.Html(string="Note")
-    sequence = fields.Char(string='Sequence', required=True, copy=False, readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('my_model_sequence'))
+    sequence = fields.Char(string='Sequence', required=True, copy=False, readonly=True, default=lambda self: self.env['ir.sequence'].next_by_code('i_contact_sequence'))
 
     @api.depends('first_name', 'last_name')
     def _compute_mail(self):

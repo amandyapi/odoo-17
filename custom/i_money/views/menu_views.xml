@@ -2,6 +2,7 @@
     <data>
         <menuitem id="menu_i_money_root" name="I Money" web_icon="i_money,static/description/icon.png" sequence="1">
             <menuitem id="sous_menu_contact" name="Contact" action="action_i_money"/>
+            <menuitem id="sous_menu_partner" name="Partners" action="contacts.action_contacts"/>
         </menuitem>
     </data>
 </odoo>

@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-   <template id="report_contact">
-       <t t-call="web.html_container">
-           <t t-foreach="docs" t-as="o">
-               <t t-call="web.external_layout">
-                   <div class="page">
-                       <div class="oe_structure"/>
-                       <h2>Contact Report</h2>
-                       <br></br>
-                       <p>
-                         Name :  <span t-field="o.first_name"/>
-                       </p>
-                   </div>
-               </t>
-           </t>
-       </t>
-   </template>
+    <data noupdate="0">
+        <record id="sequence_i_contact" model="ir.sequence">
+            <field name="name">Contact Sequence</field>
+            <field name="code">i_contact_sequence</field>
+            <!-- Define your sequence properties like prefix, suffix, padding, etc. -->
+            <field name="prefix">MA/</field>
+            <field name="padding">4</field>
+            <field name="suffix">/%(year)s</field>
+            <!-- Add other sequence properties -->
+        </record>
+        
+        <record id="sequence_res_partner" model="ir.sequence">
+            <field name="name">Partner Sequence</field>
+            <field name="code">res_partner_sequence</field>
+            <!-- Define your sequence properties like prefix, suffix, padding, etc. -->
+            <field name="prefix">RP/</field>
+            <field name="padding">4</field>
+            <field name="suffix">/%(year)s</field>
+            <!-- Add other sequence properties -->
+        </record>
+    </data>
 </odoo>
+ 
